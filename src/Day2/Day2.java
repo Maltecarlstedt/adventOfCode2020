@@ -23,6 +23,7 @@ public class Day2 {
         String[] arrayNoSpaces = new String[inputText.length];
 
         int valid = 0;
+        int newValid = 0;
 
         for(int j = 0; j < inputText.length; j++){
             int count = 0;
@@ -41,8 +42,20 @@ public class Day2 {
             if(numberRange[0] <= count && numberRange[1] >= count){
                 valid++;
             }
+
+            int index1 = numberRange[0] - 1;
+            int index2 = numberRange[1] - 1;
+
+
+            if((letters[0].charAt(index1) == c  && letters[0].charAt(index2) != c) || (letters[0]. charAt(index1) != c && letters[0].charAt(index2) == c)){
+                newValid++;
+            }
+
+
+
         }
         System.out.println("Number of Valid passwords in part 1 are: " + valid);
+        System.out.println("Number of Valid passwords in part 2 are: " + newValid);
     }
 
     public static String deleteSpacesFromString(String temp){
